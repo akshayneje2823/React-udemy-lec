@@ -26,7 +26,7 @@ export default emojipedia;
 
 
 
-var newArray = emojipedia.map(function(emoji){
-  return emoji.meaning.substring(1,100)
-})
-console.log(newArray)
+// var newArray = emojipedia.map(function(emoji){
+//   return emoji.meaning.substring(1,100)
+// })
+// console.log(newArray)
