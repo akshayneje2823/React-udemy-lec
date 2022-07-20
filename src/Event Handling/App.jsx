@@ -6,7 +6,8 @@ function App() {
 
 
     function clickHandler(){
-        console.log("clicked")
+        console.log("Clicked")
+        setHeading("Submited")
     }
     function MouseOut(){
         console.log("MouseOut");
