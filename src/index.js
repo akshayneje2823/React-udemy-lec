@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App2 from '../src/changing Complex state/App copy'
-
+import App from '../src/To-Do-List/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App2/>
+    <App/>
   </React.StrictMode>
 );
 
