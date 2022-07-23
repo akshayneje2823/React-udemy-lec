@@ -1,4 +1,6 @@
 import React,{useState} from 'react'
+import InpuArea from './InpuArea';
+import To_Dos from './To_Dos';
 
 function App() {
      
@@ -7,16 +9,23 @@ function App() {
 
     function inputHandler(event){
        let inputValue = event.target.value
-       console.log(inputValue)
+      //  console.log(inputValue)
        setInputText(inputValue)
     };
 
   function getItemsHandler(){
     setInputItems((prevItems)=>{
-      console.log(prevItems)
+      // console.log(prevItems)
       return [...prevItems ,inputText]
     });
     setInputText("")
+  }
+  const deleteItem = (id) =>{
+    setInputItems(prevItems =>{
+      return prevItems.filter((item,index)=>{
+        return index !== id
+      })
+    })
   }
 
   return (
@@ -25,22 +34,21 @@ function App() {
             <h1>To-Do-List</h1>
         </div>
         <div className="form">
-
-            <input type="text"
-            value={inputText}
-            onChange={inputHandler}
-             />
-
-            <button
-             onClick={getItemsHandler}
-             type='submit'>
-                <span>Add</span>
-            </button>
-
+            <InpuArea
+            inputText={inputText}
+            inputHandler={inputHandler}
+            getItemsHandler={getItemsHandler}
+            />
         </div>
             <ul>
                 {
-                    inputItems.map(toDoItems=> <li>{toDoItems}</li> )
+                    inputItems.map((toDoItems,index)=> 
+                       <To_Dos 
+                       key={index}
+                       id={index}
+                       deleteItem={deleteItem} 
+                       toDoItems={toDoItems} />
+                       )
                 }
             </ul>
     </div>
